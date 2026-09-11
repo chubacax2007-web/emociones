@@ -84,19 +84,23 @@
         </p>
     </div>
 
-    <!-- El audio apunta exactamente al nombre del archivo que me pasaste -->
+    <!-- AQUÍ ESTÁ EL AUDIO -->
     <audio id="bgMusic" src="cancion.mp3" loop></audio> 
 
     <script>
         document.getElementById('startBtn').addEventListener('click', function() {
+            // Oculta el botón
             this.style.display = 'none';
+            // Muestra el texto
             document.getElementById('content').style.display = 'block';
             
-            // Reproducir el audio al hacer clic
-            const audio = document.getElementById('bgMusic');
-            audio.play().catch(error => {
-                console.error("Error al reproducir el audio:", error);
-            });
+            // Reproduce la música
+            var audio = document.getElementById('bgMusic');
+            if(audio) {
+                audio.play().catch(function(error) {
+                    console.log("No se pudo reproducir el audio:", error);
+                });
+            }
         });
     </script>
 </body>
